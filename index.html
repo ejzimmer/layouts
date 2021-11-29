@@ -320,6 +320,10 @@
 				</section>
 
 				<section>
+					<h1 style="margin: auto; font-size: 4em">disclaimer</h2>
+				</section>
+
+				<section>
 					<h2 class="shiny" style="margin: auto; padding: .5ch">normal flow</h2>
 				</section>
 
@@ -375,6 +379,28 @@
 					<div class="notes">
 						what we can't do
 					</div>
+				</section>
+
+				<section>
+					<div class="container" style="display: grid; grid-template-columns: max-content; grid-auto-rows: min-content">
+						<div class="element">some content</div>
+						<div class="element">short</div>
+						<div class="element">bananas</div>
+					</div>
+					<div class="notes">
+						make them all the same size as the content
+					</div>
+				</section>
+
+				<section>
+					<div class="container" style="display: grid; grid-template-columns: max-content">
+						<div class="element" style="flex-grow: 1">some content</div>
+						<div class="element" style="flex-grow: 1">short</div>
+						<div class="element" style="flex-grow: 1">bananas</div>
+					</div>
+					<div class="notes">
+						make them all the same size as the content
+					</div>					
 				</section>
 
 				<section>
@@ -862,7 +888,7 @@
 						}
 					</style>
 					<div class="container resize" style="border: none; position: relative">
-						<div style="font-size: .6; position: absolute; right: 0; width: 200px">Number of popplers eaten</div>
+						<div style="font-size: .6em; font-weight: bold; position: absolute; right: 0; width: 200px">Number of popplers eaten</div>
 						<div class="graph">
 							<div class="bar" style="height: 200px"></div>
 							<div class="bar" style="height: 30px"></div>
@@ -876,63 +902,70 @@
 				</section>
 
 				<section>
+					<h3 style="margin: auto">
+						size & position is only relative to<br> other elements in the same flexbox
+					</h3>
+				</section>
+
+				<section>
 					<style>
 						.limitations {
-							display: flex;
-							flex-wrap: wrap;
-							align-content: start;
-							width: 400px;
 							height: min-content;
 							margin: auto;
 							margin-top: 0;
-						}
-						.limitations img {
-							max-height: 200px;
+							gap: 10px;
 						}
 						.limitations .card {
-							display: grid;
-							grid-template-columns: 1fr 1fr;
-							border: 4px solid white;
-							border-radius: 10px;
-							background: var(--dark-blue) linear-gradient(140deg, var(--dark-blue), var(--dark-blue) 60px, var(--light-blue) 60px, hsl(0 0% 100% / .8) 100px, var(--dark-blue) 100px, var(--dark-blue) 120px, var(--light-blue) 120px, hsl(0 0% 100% / .8), var(--dark-blue) 150px);
-							box-shadow: inset 2px 2px 4px hsl(0 0% 0% / .4);
-							color: white;
-							align-items: center;
-							padding: 0 20px;
-							font-size: .5em;
-							flex-grow: 1;
-							width: 150px;
+							border: 2px solid;
+							width: 200px;
+							background: white;
+						}
+						.limitations .card div:first-of-type {
+							font-size: 14px;
+						}
+						.limitations .card div:nth-of-type(2) {
+							font-size: 16px;
+							font-weight: bold;
+						}
+						.limitations .card img {
+							max-width: 100%;
 						}
 					</style>
-					<h3>Limitations of flexbox</h3>
 					<div class="limitations resize">
 						<div class="card">
-							<img src="images/250px-Scruffy.png">
-							<div>Scruffy</div>
+							<img src="images/etsy-brain-slug.avif">
+							<div>Futurama Brain Slug light</div>
+							<div>AU$21.97</div>
 						</div>
 						<div class="card">
-							<img src="images/amy.png" alt="">
-							<div>Amy</div>
+							<img src="images/etsy-custom-portrait.avif" alt="">
+							<div>Custom Family Portrait</div>
+							<div>AU$16.19</div>
 						</div>
 						<div class="card">
-							<img src="images/bender.png" alt="">
-							<div>Bender</div>
+							<img src="images/etsy-new-new-york.avif" alt="">
+							<div>New New York Travel Poster</div>
+							<div>AU$21.97</div>
 						</div>
 						<div class="card">
-							<img src="images/nibbler.png" alt="">
-							<div>Nibbler</div>
+							<img src="images/etsy-slurm.avif" alt="">
+							<div>Slurm Earrings</div>
+							<div>$AU14.95</div>
 						</div>
 						<div class="card">
-							<img src="images/farnsworth.png" alt="">
-							<div>Professor Farnsworth</div>
+							<img src="images/etsy-fry.avif" alt="">
+							<div>Fry pin</div>
+							<div>AU$12.50</div>
 						</div>
 						<div class="card">
-							<img src="images/kif.png" alt="">
-							<div>Kif</div>
+							<img src="images/etsy-futurama-poster.webp" alt="">
+							<div>Futurama Framed Poster</div>
+							<div>AU$79.99</div>
 						</div>
 						<div class="card">
-							<img src="images/Seymour.png" alt="">
-							<div>Seymour</div>
+							<img src="images/etsy-money-wallet.avif" alt="">
+							<div>Leather Wallet</div>
+							<div>AU$71.78</div>
 						</div>
 					</div>
 					<div class="notes">
@@ -945,6 +978,10 @@
 
 				<section>
 					<h2 class="shiny" style="margin: auto; padding: .5ch">grid</h2>
+					<div class="notes">
+						no lineboxes or flexboxes 
+						you can create any layout that you like, as long as you like grids
+					</div>
 				</section>
 
 				<section>
@@ -984,30 +1021,307 @@
 						}
 					</script>
 					<div class="notes">
-						grid is completely different - no lineboxes flexboxes etc
-						you decide how the layout is going to work
-						only limitation is that it has to be a gride of rectangles
-						define a grid in px 
-						can also use all the other units
+						like a flex container, we create a grid container by giving an element display: grid 
+						any children of the element now become grid items 
+						we set up our grid by defining rows and colums 
+						then, when we place children inside the container, they're laid out according to the grid 
 					</div>
 				</section>
 
 				<section>
 					<style>
-						.futurama.grid {
-							grid-template-columns: 500px 200px 200px;
-							grid-template-rows: 200px 500px;
-							justify-content: center;
+						a.attribution {
+							font-size: .5em;
+							position: absolute;
+							bottom: 1em;
+							transform: translate(calc(-100% - 1em));
+							width: max-content;
 						}
 					</style>
-					<div class="futurama grid">
-						<img src="images/ship.png" alt="">
-						<img src="images/amy.png" alt="">
-						<img src="images/fry.png" alt="">
-						<img src="images/leela.png" alt="">
-						<img src="images/bender.png" alt="">
-						<img src="images/kif.png" alt="">
-					</div>			
+					<h3>Designing with grids</h3>
+					<div style="position: relative">
+						<img src="images/Thinking_with_Type_Grid_6.gif" alt="" style="max-height: 100%; max-width: 100%">
+						<a class="attribution">http://thinkingwithtype.com/grid/</a>	
+					</div>
+					<div class="notes">
+						if you've ever worked with designers ... 12 column layout
+						columns for layout pre-dates web 
+						setup columns, place elements, potentially spanning several columns
+					</div>
+				</section>
+
+				<section>
+					<div style="position: relative; height: min-content;">
+						<img src="images/BlogArticle-BootstrapGrid.png" alt="">
+						<a class="attribution">https://codelikethis.com/lessons/bootstrap/bootstrap-development</a>
+					</div>
+					<div class="notes">
+						on the web we use 12 columns 
+						not inherently good design 
+						easy to divide up evenly, bootstrap, etc ok for everyone
+					</div>
+				</section>
+
+				<section>
+					<img src="images/amy-nibbler-spaceship.jpg" alt="">
+					<div class="notes">
+						1 size fits all....
+					</div>
+				</section>
+
+				<section>
+					<style>
+						.container-12-column {
+							width: 560px;
+							height: 500px;
+							background-image: url('./images/futurama-tweet.png');
+							background-size: contain;
+							margin: auto;
+							position: relative;
+						}
+
+						table.grid-12-column td {
+							border: 2px solid white;
+						}
+						table.grid-12-column {
+							border-collapse: collapse;
+							position: absolute;
+							width: 100%;
+							height: 100%;
+						}
+					</style>
+					<div class="container-12-column">
+						<table class="grid-12-column fragment">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>	
+					</div>
+					<div class="notes">
+						tweet doesn't fit in 12 column layout 
+					</div>
+				</section>
+
+				<section>
+					<div class="container-12-column">
+						<table class="grid-12-column">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>	
+					</div>
+					<div class="notes">
+						tweet doesn't fit in 12 column layout 
+					</div>
+				</section>
+
+
+				<section>
+					<style>
+						.futurama-tweet-grid {
+							margin: auto;
+							display: grid;
+							width: 800px; 
+							grid-template-columns: 100px repeat(4, 1fr);
+							grid-template-rows: min-content 1fr 200px min-content;
+							background: #15202b;
+							color: white;
+						}
+						.futurama-tweet-grid .avatar, .tweet .avatar {
+							border-radius: 50%;
+						}
+						.futurama-tweet-grid .username, .tweet .username {
+							opacity: 0.6;
+						}
+						.futurama-tweet-grid .button, .tweet .button {
+							stroke: currentColor;
+							fill: currentColor;
+							width: 24px;
+							opacity: .6;
+						}
+						.futurama-tweet-grid .action, .tweet .action {
+							stroke: currentColor;
+							width: 24px;
+							opacity: .6;
+						}
+						.futurama-tweet-grid .image .tweet .image {
+							border-radius: 10px;	
+						}
+						.tweet {
+							width: 560px;
+							height: 500px;
+							border: 4px solid;
+							margin: auto;
+							margin-top: 0;
+							font-size: 20px;
+						}
+						.out {
+							position: fixed;
+							top: 90%;;
+						}
+					</style>
+					<div class="tweet">
+							<img class="avatar out" src="images/tweet-avatar.jpg" style="width: 90%; border-radius: 50%;" />
+							<div class="out">
+								<strong>Futurama Robit</strong>
+								<span class="username">@FuturamaBot3000 · 2h</span>
+							</div>
+							<svg viewBox="0 0 24 24" class="button out">
+								<circle cx="5" cy="12" r="2"></circle>
+								<circle cx="12" cy="12" r="2"></circle>
+								<circle cx="19" cy="12" r="2"></circle>
+							</svg>
+							<div class="out">Welcome to the world of tomorrow! The time is 12:01 am. Good news everyone! Today is Sunday November 21, 3021, that means only 40 days left in the year!</div>
+							<img class="image out" src="images/tweet-image.jpeg" alt="">
+							<svg viewBox="0 0 24 24" class="action out">
+								<path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
+							</svg>
+							<svg viewBox="0 0 24 24" class="action out">
+								<path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
+							</svg>
+							<svg viewBox="0 0 24 24" class="action out">
+								<path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
+							</svg>
+							<svg viewBox="0 0 24 24" class="action out">
+								<path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path><path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
+							</svg>		
+						</div>
+				</section>
+
+				<section>
+					<pre><code>.tweet {
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.title {
+	grid-column: span 7
+}
+
+.text, .image {
+	grid-column: 2 / -1;
+}
+
+.action {
+	grid-column: span 2;
+}
+
+.action:nth-of-type(2) {
+	grid-column: 2 / span 2;
+}</code></pre>
+				</section>
+
+				<section>
+					<style>
+						.named-areas .grid {
+							grid-template-columns: 65px repeat(4, 1fr);
+							grid-template-rows: 30px 60px 1fr 45px;
+							grid-template-areas: 'avatar title title title menu'
+												           'avatar text  text  text  text'
+																	 '.      img   img   img   img'
+																	 '.      btn   btn   btn   btn';
+							--background-alpha: .8
+
+						}
+						.named-areas .grid * {
+							color: white;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							text-shadow: 2px 2px black;
+						}
+
+						.named-areas .grid .avatar {
+							grid-area: avatar;
+							border: 2px solid hsl(125, 94%, 41%);
+							background: hsl(125 94% 41% / var(--background-alpha));
+							writing-mode: vertical-lr; 	
+						}
+						.named-areas .grid .title {
+							grid-area: title;
+							border: 2px solid hsl(293, 82%, 51%);
+							background: hsl(293 82% 51% / var(--background-alpha));
+						}
+						.named-areas .grid .menu {
+							grid-area: menu;
+							border: 2px solid hsl(347, 84%, 52%);
+							background: hsl(347 84% 52% / var(--background-alpha));
+						}
+						.named-areas .grid .text {
+							grid-area: text;
+							border: 2px solid hsl(224, 84%, 52%);
+							background: hsl(224 84% 52% / var(--background-alpha));							
+						}
+						.named-areas .grid .image {
+							grid-area: img;
+							border: 2px solid hsl(61, 90%, 52%);
+							background: hsl(61 90% 52% / var(--background-alpha));							
+						}
+						.named-areas .grid .button {
+							grid-area: btn;
+							border: 2px solid hsl(29, 90%, 52%);
+							background: hsl(29 90% 52% / var(--background-alpha));							
+						}
+					</style>
+					<div class="container-12-column named-areas">
+						<div class="grid">
+							<div class="avatar">avatar</div>
+							<div class="title">title</div>
+							<div class="menu">menu</div>
+							<div class="text">text</div>
+							<div class="image">img</div>
+							<div class="button">btn</div>
+						</div>
+					</div>
+					<div class="notes">
+						more semantic way of describing layout
+					</div>
+				</section>
+
+				<section>
+					<pre><code class="css" data-noescape="">
+.tweet {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-areas: 'avatar title title title menu'
+ 											 'avatar text  text  text  text'
+											 '.      img   img   img   img'
+											 '.      btn   btn   btn   btn';
+}
+<span class="fragment">
+.avatar {
+	grid-area: avatar;
+}</span>
+<span class="fragment">
+.title {
+	grid-area: title;
+}</span>
+					</code></pre>
+					<div class="notes">
+						generic, 12-column layout -> semantic specific layout
+						still using equal sized columns 
+						with grid, we can make columns all different sizes - or not even specify an 
+						exact size. just give the browser some guidelines at let it work it out at runtime
+					</div>
 				</section>
 
 				<section class="with-heading" data-background-image="images/Seymour.png" data-background-size="300px" data-background-position="bottom left">
@@ -1045,383 +1359,73 @@
 				</section>
 
 				<section>
-					<h3>Semantic layouts with grid area</h3>
-					<img src="./images/futurama-tweet.png" alt="">
-				</section>
-
-				<section>
-					we need like a demo of the traditional 12 column layout
-				</section>
-
-				<section>
-					<h3>Thinking in grids</h3>
-					<img src="./images/futurama-tweet-grid.png" >
-					make the grid not have the numbers 
-					instead, overlay the names of the grid parts
-				</section>
-
-				<section>
 					<style>
-						.futurama-tweet-grid-outline {
+						.auto-columns {
+							height: min-content;
 							margin: auto;
-							display: grid;
-							width: 800px; 
-							height: 400px;
-							grid-template-columns: 100px repeat(4, 1fr);
-							grid-template-rows: min-content 1fr 200px min-content;
+							margin-top: 0;
+							gap: 10px;
+							width: 100%;
 						}
-					</style>
-					<h3>The plan</h3>
-					<div class="futurama-tweet-grid-outline">
-						<div>icon</div>
-						<div>user</div>
-						<div>user</div>
-						<div>user</div>
-						<div>menu</div>
-						<div>icon</div>
-						<div>text</div>
-						<div>text</div>
-						<div>text</div>
-						<div>text</div>
-						<div></div>
-						<div>image</div>
-						<div>image</div>
-						<div>image</div>
-						<div>image</div>
-						<div></div>
-						<div>action 1</div>
-						<div>action 2</div>
-						<div>action 3</div>
-						<div>action 4</div>
-					</div>
-					<pre class="fragment"><code class="css">
-.tweet {
-	grid-template-columns: 100px repeat(4, 1fr);
-	grid-template-rows: min-content 1fr 200px min-content;
-}
-					</code></pre>
-					<div class="notes">
-						then we can convert this layout into a map that css can understand 
-						change this to the actual css
-					</div>
-				</section>
-
-				<section>
-					show the grid setup, with the labels and everything using dev tools 
-					then show how we add the elements
-				</section>
-
-				<section>
-					<style>
-						.futurama-tweet-grid {
-							margin: auto;
-							display: grid;
-							width: 800px; 
-							grid-template-columns: 100px repeat(4, 1fr);
-							grid-template-rows: min-content 1fr 200px min-content;
-							background: #15202b;
-							color: white;
+						.auto-columns .card {
+							border: 2px solid;
+							background: white;
 						}
-						.futurama-tweet-grid .avatar {
-							border-radius: 50%;
+						.auto-columns .card div:first-of-type {
+							font-size: 14px;
 						}
-						.futurama-tweet-grid .username {
-							opacity: 0.6;
+						.auto-columns .card div:nth-of-type(2) {
+							font-size: 16px;
+							font-weight: bold;
 						}
-						.futurama-tweet-grid .button {
-							stroke: currentColor;
-							fill: currentColor;
-							width: 24px;
-							opacity: .6;
-						}
-						.futurama-tweet-grid .action {
-							stroke: currentColor;
-							width: 24px;
-							opacity: .6;
-						}
-						.futurama-tweet-grid .image {
-							border-radius: 10px;	
-						}
-
-					</style>
-					<div class="futurama-tweet-grid" style="font-size: 24px">
-						<img class="avatar" src="images/tweet-avatar.jpg" />
-						<div>
-							<strong>Futurama Robit</strong>
-							<span class="username">@FuturamaBot3000 · 2h</span>
-						</div>
-						<svg viewBox="0 0 24 24" class="button">
-							<circle cx="5" cy="12" r="2"></circle>
-							<circle cx="12" cy="12" r="2"></circle>
-							<circle cx="19" cy="12" r="2"></circle>
-						</svg>
-						<div>Welcome to the world of tomorrow! The time is 12:01 am. Good news everyone! Today is Sunday November 21, 3021, that means only 40 days left in the year!</div>
-						<img class="image" src="images/tweet-image.jpeg" alt="">
-						<svg viewBox="0 0 24 24" class="action">
-							<path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
-						</svg>
-						<svg viewBox="0 0 24 24" class="action">
-							<path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
-						</svg>
-						<svg viewBox="0 0 24 24" class="action">
-							<path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
-						</svg>
-						<svg viewBox="0 0 24 24" class="action">
-							<path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path><path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
-						</svg>
-					</div>
-				</section>
-
-				<section>
-					<pre><code class="css" data-noescape>
-.tweet {
-	grid-template-columns: 100px repeat(4, 1fr);
-	grid-template-rows: min-content 1fr 200px min-content;
-	<span class="fragment">grid-template-areas: "avatar user user user menu"
- 	  									 "avatar text text text text"
- 	 									   "avatar image image image image"
- 		   								 ". action1 action2 action3 action4"
-	</span>
-}
-	<span class="fragment">
-.avatar {
-	grid-area: avatar;
-}
-.user {
-	grid-area: user;
-}
-.text {
-	grid-area: text;
-}
-.image {
-	grid-area: image;
-}
-.action-1 {
-	grid-area: action1
-}
-.action-2 {
-	grid-area: action2
-}
-.action-3 {
-	grid-area: action3
-}
-.action-4 {
-	grid-area: action4
-}
-	</span>
-					</code></pre>
-				</section>
-
-				<section>
-					<style>
-						.tweet-grid {
-							margin: auto;
-							display: grid;
-							width: 800px; 
-							grid-template-columns: 100px repeat(4, 1fr);
-							grid-template-rows: min-content 1fr 500px min-content;
-							background: #15202b;
-							color: white;
-							grid-template-areas: "avatar user user user menu"
- 	  									 "avatar text text text text"
- 	 									   "avatar image image image image"
- 		   								 ". action1 action2 action3 action4";
-							grid-gap: 10px;
-							padding: 20px;
-						}
-						.tweet-grid .avatar {
-							grid-area: avatar;
-							border-radius: 50%;
-							align-self: start;
-						}
-						.tweet-grid .user {
-							grid-area: user;
-							text-align: left;
-						}
-						.tweet-grid .username {
-							opacity: 0.6;
-						}
-						.tweet-grid .menu {
-							grid-area: menu;
-							justify-self: end;
-						}
-						.tweet-grid .button {
-							stroke: currentColor;
-							fill: currentColor;
-							width: 24px;
-							opacity: .6;
-						}
-						.tweet-grid .text {
-							grid-area: text;
-							text-align: left;
-						}
-						.tweet-grid .image {
-							grid-area: image;
-							border-radius: 10px;	
+						.auto-columns .card img {
 							max-width: 100%;
-							height: 100%;
 						}
-						.tweet-grid .action {
-							stroke: currentColor;
-							width: 24px;
-							opacity: .6;
-						}
-						.tweet-grid .action.one {
-							grid-area: action1;
-						}
-						.tweet-grid .action.two {
-							grid-area: action2;
-						}
-						.tweet-grid .action.three {
-							grid-area: action3;
-						}
-						.tweet-grid .action.four {
-							grid-area: action4;
-						}
-
 					</style>
-					<div class="tweet-grid" style="font-size: 24px">
-						<img class="avatar" src="images/tweet-avatar.jpg" />
-						<div class="user">
-							<strong>Futurama Robit</strong>
-							<span class="username">@FuturamaBot3000 · 2h</span>
+					<div class="auto-columns resize">
+						<div class="card">
+							<img src="images/etsy-brain-slug.avif">
+							<div>Futurama Brain Slug light</div>
+							<div>AU$21.97</div>
 						</div>
-						<svg viewBox="0 0 24 24" class="button menu">
-							<circle cx="5" cy="12" r="2"></circle>
-							<circle cx="12" cy="12" r="2"></circle>
-							<circle cx="19" cy="12" r="2"></circle>
-						</svg>
-						<div class="text">Welcome to the world of tomorrow! The time is 12:01 am. Good news everyone! Today is Sunday November 21, 3021, that means only 40 days left in the year!</div>
-						<img class="image" src="images/tweet-image.jpeg" alt="">
-						<svg viewBox="0 0 24 24" class="action one">
-							<path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
-						</svg>
-						<svg viewBox="0 0 24 24" class="action two">
-							<path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
-						</svg>
-						<svg viewBox="0 0 24 24" class="action three">
-							<path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
-						</svg>
-						<svg viewBox="0 0 24 24" class="action four">
-							<path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path><path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
-						</svg>
-					</div>
-				</section>
-
-				<section>
-					can we sneak in some autofit?
-				</section>
-
-				<section>
-					<ul>
-						<li>Normal flow for laying out documents</li>
-						<li>Flex for flexible line-by-line layout</li>
-						<li>Grid for 2D layout</li>
-					</ul>
-				</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
-
-
-
-
-
-				<section>
-					<style>
-						.slurms {
-							display: flex;
-							flex-wrap: wrap;
-							align-content: center;
-							justify-content: center;
-						}
-						.slurms div {
-							--shadow: .5px;
-							--minus: calc(-1 * var(--shadow));
-							font-family: 'Suez One', serif;
-							flex-grow: 1;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-							margin: 10px;
-							padding: 10px 20px;
-							border-radius: 2500px;
-							background: radial-gradient(circle, hsl(61, 67%, 51%), hsl(61, 67%, 51%) 70px, hsl(267, 62%, 32%) 70px);
-							color: hsl(309, 77%, 64%);
-							text-shadow: var(--shadow) var(--shadow) black,
-													 var(--minus) var(--shadow) black,
-													 var(--shadow) var(--minus) black,
-													 var(--minus) var(--minus) black;
-						}
-					</style>
-					<div class="slurms resize">
-						<div>Slurm</div>
-						<div>Slurmee</div>
-						<div>Royal Slurm</div>
-						<div>SuperSlurm</div>
-						<div>New Slurm</div>
-						<div>Diet Slurm</div>
-						<div>Enslurm</div>
-						<div>Slurm Loco</div>
-						<div>Slurm Medicinal Tonic</div>
-						<div>Slurm Slim</div>	
+						<div class="card">
+							<img src="images/etsy-custom-portrait.avif" alt="">
+							<div>Custom Family Portrait</div>
+							<div>AU$16.19</div>
+						</div>
+						<div class="card">
+							<img src="images/etsy-new-new-york.avif" alt="">
+							<div>New New York Travel Poster</div>
+							<div>AU$21.97</div>
+						</div>
+						<div class="card">
+							<img src="images/etsy-slurm.avif" alt="">
+							<div>Slurm Earrings</div>
+							<div>$AU14.95</div>
+						</div>
+						<div class="card">
+							<img src="images/etsy-fry.avif" alt="">
+							<div>Fry pin</div>
+							<div>AU$12.50</div>
+						</div>
+						<div class="card">
+							<img src="images/etsy-futurama-poster.webp" alt="">
+							<div>Futurama Framed Poster</div>
+							<div>AU$79.99</div>
+						</div>
+						<div class="card">
+							<img src="images/etsy-money-wallet.avif" alt="">
+							<div>Leather Wallet</div>
+							<div>AU$71.78</div>
+						</div>
 					</div>
 					<div class="notes">
-						fun, organic layout, everything is aligned horizontally, but 
-						not vertically 
-						sometimes that's what you want 
-						but sometimes you need something a little more orderly
+						sometimes we don't know how many columns we want 
+						we know min size and just want whatever will fit
+						also want them to stretch to take up available space
+						grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
 					</div>
 				</section>
-
-				<section>
-					<style>
-						.slurms.grid {
-							display: grid;
-							grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-						}
-					</style>
-					<div class="slurms grid resize">
-						<div>Slurm</div>
-						<div>Slurmee</div>
-						<div>Royal Slurm</div>
-						<div>SuperSlurm</div>
-						<div>New Slurm</div>
-						<div>Diet Slurm</div>
-						<div>Enslurm</div>
-						<div>Slurm Loco</div>
-						<div style="grid-row: span 2">Slurm Medicinal Tonic</div>
-						<div style="align-self: center">Slurm Slim</div>	
-					</div>
-					<div class="notes">
-						there isn't really a way to get flexbox to do this,
-						especially with the element spanning two rows
-					</div>
-				</section>
-
-
-
-
-
-				<section class="centre">
-					<a href="futurama-grid.html" target="_blank">image grid</a>
-				</section>
-
-
-
-
 
 				<section class="end">
 					<style>
