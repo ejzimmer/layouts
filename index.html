@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Layouts of the future</title>
+		<title>Layouts of tomorrow</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -300,7 +300,9 @@
 				</section>
 
 				<section>
-					<img src="images/css-can-kill-you.png" />
+					<div style="border: 2px solid; border-radius: 30% 70% 39% 61% / 20% 30% 70% 80%; display: flex; width: 600px; height: 600px; margin: auto; justify-content: center; background: white;">
+						<img src="images/css-can-kill-you.png" style="align-self: start; margin-top: 80px;"/>
+					</div>
 					<div class="notes">
 						historically, CSS layout was quite tricky
 						especially when it came to aligning things & sizing things relative to each other 
@@ -320,7 +322,9 @@
 				</section>
 
 				<section>
-					<h1 style="margin: auto; font-size: 4em">disclaimer</h2>
+					<div class="inverse" style="display: flex">
+						<h1 style="margin: auto; font-size: 1.5em">disclaimer</h2>
+					</div>
 				</section>
 
 				<section>
@@ -371,10 +375,29 @@
 				</section>
 
 				<section>
-					<div class="container">
-						<div class="element">some content</div>
-						<div class="element">short</div>
-						<div class="element">bananas</div>
+					<style>
+						.min-content-demo {
+							margin: auto;
+							height: min-content;
+							text-align: left;
+							border: 4px solid;
+							padding: 100px;
+							padding-left: 0;
+							padding-top: 0;
+						}
+						.min-content-demo div {
+							font-family: Kalam;
+							background: var(--dark-blue); color:hsl(60, 4%, 82%); 
+							padding: .5em;
+						}
+						.min-content-demo div + div {
+							border-top: 1px solid;
+						}
+					</style>
+					<div class="min-content-demo">
+							<div>Hawaiian</div>
+							<div>Aussie</div>
+							<div>Meatlovers Deluxe</div>
 					</div>
 					<div class="notes">
 						what we can't do
@@ -382,23 +405,18 @@
 				</section>
 
 				<section>
-					<div class="container" style="display: grid; grid-template-columns: max-content; grid-auto-rows: min-content">
-						<div class="element">some content</div>
-						<div class="element">short</div>
-						<div class="element">bananas</div>
+					<div class="browser flex-footer" style="height: 600px; width: 600px; margin: auto; background: white; display: flex; flex-direction: column;">
+						<article style="flex-grow: 1" class="fragment outline">
+							<h1>Chapter 1</h1>
+							<p>
+							Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
+							</p>
+						</article>
+						<footer>
+							<a href="https://twitter.com/erinjzimmer">Contact</a> | <a href="https://cogent.co/careers">Careers</a>
+						</footer>
 					</div>
-					<div class="notes">
-						make them all the same size as the content
-					</div>
-				</section>
-
-				<section>
-					<div class="container" style="display: grid; grid-template-columns: max-content">
-						<div class="element" style="flex-grow: 1">some content</div>
-						<div class="element" style="flex-grow: 1">short</div>
-						<div class="element" style="flex-grow: 1">bananas</div>
-					</div>
-					<div class="notes">
+				<div class="notes">
 						make them all the same size as the content
 					</div>					
 				</section>
@@ -598,7 +616,7 @@
 					<input id="flex-footer" type="checkbox" class="deploy-flex" />
 					<label for="flex-footer">deploy flex</label>					
 					<div class="browser flex-footer" style="height: 600px; width: 600px; margin: auto; background: white">
-						<article>
+						<article id="add-content">
 							<h1>Chapter 1</h1>
 							<p>
 							Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
@@ -613,7 +631,7 @@
 						'This planet has - or rather had - a problem, which was this: most of the people living on it were unhappy for pretty much of the time.',
 					'Many solutions were suggested for this problem, but most of these were largely concerned with the movements of small green pieces of paper, which is odd because on the whole it wasn\'t the small green pieces of paper that were unhappy.']
 						let index = 0;
-						const stickyFooterContainer = document.querySelector('.browser.flex-footer article')
+						const stickyFooterContainer = document.querySelector('#add-content')
 						function addTextContent() {
 							const text = paragraphs[index++]
 							const p = document.createElement('p')
@@ -1002,7 +1020,7 @@
 						}
 					</style>
 					<div class="container">
-						<div class="grid" id="initial-grid-demo"></div>
+						<div id="initial-grid-demo"></div>
 					</div>
 					<script>
 						function addGridElement() {
@@ -1063,7 +1081,7 @@
 				</section>
 
 				<section>
-					<img src="images/amy-nibbler-spaceship.jpg" alt="">
+					<img style="border-radius: 30% 70% 54% 46% / 56% 39% 61% 44%" src="images/amy-nibbler-spaceship.jpg" alt="">
 					<div class="notes">
 						1 size fits all....
 					</div>
@@ -1130,7 +1148,7 @@
 						</table>	
 					</div>
 					<div class="notes">
-						tweet doesn't fit in 12 column layout 
+						it likes 5
 					</div>
 				</section>
 
@@ -1327,19 +1345,20 @@
 				<section class="with-heading" data-background-image="images/Seymour.png" data-background-size="300px" data-background-position="bottom left">
 					<style>
 						.pizza-menu {
-							font-size: 1em;
+							font-size: .8em;
 							font-family: 'League Gothic';
 							display: grid;
 							text-align: left;
+							font-family: Kalam
 						}
 						.block {
 							display: block;
 						}
 					</style>
 					<h3 style="margin-bottom: 1em;">Responsive grid layouts</h3>
-					<div class="resize" style="background: linear-gradient(135deg, hsl(0 0% 100% / .8), transparent">
-						<h4 style="font-family: Raleway">Panucci's Pizza</h4>
-						<div class="pizza-menu" style="grid-template-columns: 200px 500px 70px">
+					<div class="resize" style="background: var(--dark-blue); color:hsl(60, 4%, 82%); width: 830px;">
+						<h4 style="font-family: Raleway; color: white">Panucci's Pizza</h4>
+						<div class="pizza-menu" style="grid-template-columns: 200px 500px 90px">
 							<div>Hawaiian</div>
 							<div>Ham, Cheese & Pineapple</div>
 							<div>$18.00</div>
@@ -1427,6 +1446,31 @@
 					</div>
 				</section>
 
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>layout</th>
+								<th style="text-align: center">💖</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="fragment">
+								<td>normal flow</td>
+								<td style="text-align: center">documents</td>
+							</tr>
+							<tr class="fragment">
+								<td>flex</td>
+								<td style="text-align: center">1-dimensional layouts</td>
+							</tr>
+							<tr class="fragment">
+								<td>grid</td>
+								<td style="text-align: center">2-dimensional layouts</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
 				<section class="end">
 					<style>
 						.end {
@@ -1440,6 +1484,7 @@
 					</style>
 
 					<div class="fragment"><a href="https://layouts.ez.codes">https://layouts.ez.codes</a></div>	
+					<div class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout</a></div>	
 
 					<div class="fragment">
 						<div>@ErinJZimmer</div>
