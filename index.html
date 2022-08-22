@@ -237,7 +237,7 @@
 						.title {
 							grid-template-columns: 300px 1fr;
 							grid-template-rows: min-content;
-						}	
+						}
 						.title h1, .title div {
 							grid-column: 2
 						}
@@ -247,8 +247,8 @@
 						.title h1 em {
 							color: var(--light-red);
 							font-weight: bold;
-							text-shadow: 
-								6px 6px var(--dark-blue), 
+							text-shadow:
+								6px 6px var(--dark-blue),
 								-2px 2px var(--dark-blue),
 								2px -2px var(--dark-blue),
 								-2px -2px var(--dark-blue);
@@ -300,61 +300,78 @@
 				</section>
 
 				<section>
-					<div style="border: 2px solid; border-radius: 30% 70% 39% 61% / 20% 30% 70% 80%; display: flex; width: 600px; height: 600px; margin: auto; justify-content: center; background: white;">
-						<img src="images/css-can-kill-you.png" style="align-self: start; margin-top: 80px;"/>
-					</div>
-					<div class="notes">
-						historically, CSS layout was quite tricky
-						especially when it came to aligning things & sizing things relative to each other 
-					</div>
-				</section>
-
-				<section>
-					<ul style="margin: auto; font-size: 1.5em">
-						<li class="fragment">Normal flow</li>
-						<li class="fragment">Flex layout</li>
-						<li class="fragment">Grid layout</li>
-					</ul>
-					<div class="notes">
-						let's look at why it's hard and what's actually going on with the old-style layouts 
-						and then let's have a look at two options we have for making it easier - flexbox & grid
-					</div>
-				</section>
-
-				<section>
-					<div class="inverse" style="display: flex">
-						<h1 style="margin: auto; font-size: 1.5em">disclaimer</h2>
-					</div>
-				</section>
-
-				<section>
-					<h2 class="shiny" style="margin: auto; padding: .5ch">normal flow</h2>
-				</section>
-
-				<section>
-					<div style="margin: auto; font-size: 3em; display: grid">
-						<b>BLOCK</b> 
-						<div style="font-size: .5em; transform: scale(6) translateY(2px); opacity: .5; text-shadow: 2px 2px var(--light-blue); z-index: -1">&</div> 
-						<em style="font-size: 1.25em">inline</em>
+					<style>
+						.articles {
+							display: grid;
+							grid-template-columns: repeat(3, auto);
+							height: 100%;
+							align-items: start;
+							grid-auto-flow: dense;
+						}
+						.articles img {
+							width: 100%;
+							max-width: 100%;
+							max-height: 100%;
+							align-self: start;
+						}
+					</style>
+					<div class="articles">
+						<img src="images/flex&grid/1_HGXoBi1rjUFrv7LBtynokQ.jpeg">
+						<img src="images/flex&grid/5bncy1jtxpy8q58p2tqq.webp">
+						<img style="grid-row: span 2" src="images/flex&grid/align-items.svg">
+						<img src="images/flex&grid/CSS-GRID-3.png">
+						<img style="margin-top: -33px" src="images/flex&grid/digest.png">
+						<img src="images/flex&grid/grid-concepts.svg">
+						<img style="margin-top: -36px" src="images/flex&grid/pcdnc4x3hqoy7yemu5dh.webp">
+						<img style="grid-row: span 2" src="images/flex&grid/rofzm44oka091.webp">
+						<img style="grid-column: 2; margin-top: -87px" src="images/flex&grid/screenshot.png">
+						<img style="grid-column: 1" src="images/flex&grid/1_FifZUGz97Onmb7RUOairbg.png">
 					</div>
 				</section>
 
 				<section>
-					<h3>block elements</h3>
+					<h2 class="shiny" style="margin: auto; padding: .5ch">Normal flow</h2>
+				</section>
+
+				<section>
+					what is layout
+					list of all the layout types
+					highlight normal flow maybe
+				</section>
+
+				<section>
+					normal flow is for laying out documents => mental model
+				</section>
+
+				<section>
+					how to get normal flow?
+				</section>
+
+				<section>
+					how to not get normal flow?
+				</section>
+
+				<section>
+					diagram of not-normal flow but normal flow children
+				</section>
+
+				<section>
+					<h3>elements that hold other elements</h3>
+					make this strike through and then say "block elements"
 					<code>
-						<strong class="fragment">&lt;div&gt;</strong> <span class="fragment">&lt;article&gt; &lt;details&gt; &lt;p&gt; &lt;fieldset&gt; &lt;header&gt; &lt;h1/2/3/4/5/6&gt;
-						&lt;footer&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;nav&gt; &lt;section&gt; &lt;table&gt; &lt;hr&gt;</span>
+						<span class="fragment">&lt;article&gt; &lt;details&gt; &lt;p&gt; &lt;fieldset&gt; &lt;header&gt; &lt;h1/2/3/4/5/6&gt;
+						&lt;footer&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;nav&gt; &lt;section&gt;</span>
 					</code>
-					<pre class="fragment"><code class="css">
-* {
-	display: block
-}
-					</code></pre>
-					<div class="notes">
-						there are others
-						notice they're elements that you'd either expect to contain other elements (like header, nav, lists, etc)
-						or to take up the entire width of the page themselves (like hr, p)
-					</div>
+					<h3>content elements</h3>
+					make this strike through and then say "inline elements"
+					<code>
+						<span class="fragment">&lt;a&gt; &lt;abbr&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;time&gt; &lt;video&gt;</span>
+					</code>
+				</section>
+
+				<section>
+					block elements
+					ones listed above + display: block
 				</section>
 
 				<section>
@@ -365,60 +382,28 @@
 						</div>
 					</div>
 					<div class="notes">
-						sizing
-						- width = 100%
-						- height = height of content 
-						- change the width, changes the height 
-						- fix the height too small = overflow
-						- show the CSS is awesome meme & explain that it won't do it naturally
+						by default, it's responsive
+						all content will be visible, and the container will fit the available space
+						width = 100%, height = min-content
+						change the width, the height changes, still responsive, great
+						change the height might be ok, might be bad
+						you prefer things to look pretty, but the browser prefers everything to be visible
+						so, overflow (the browser thinks you've made a mistake)
 					</div>
 				</section>
 
 				<section>
-					<style>
-						.min-content-demo {
-							margin: auto;
-							height: min-content;
-							text-align: left;
-							border: 4px solid;
-							padding: 100px;
-							padding-left: 0;
-							padding-top: 0;
-						}
-						.min-content-demo div {
-							font-family: Kalam;
-							background: var(--dark-blue); color:hsl(60, 4%, 82%); 
-							padding: .5em;
-						}
-						.min-content-demo div + div {
-							border-top: 1px solid;
-						}
-					</style>
-					<div class="min-content-demo">
-							<div>Hawaiian</div>
-							<div>Aussie</div>
-							<div>Meatlovers Deluxe</div>
-					</div>
-					<div class="notes">
-						what we can't do
-					</div>
+					best practices
+					- prefer not to set width and esp height
+					- consider min/max-width/height (example of like a modal or something)
+					- also min/max-content (demo)
+					- scrollbars
 				</section>
 
 				<section>
-					<div class="browser flex-footer" style="height: 600px; width: 600px; margin: auto; background: white; display: flex; flex-direction: column;">
-						<article style="flex-grow: 1" class="fragment outline">
-							<h1>Chapter 1</h1>
-							<p>
-							Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
-							</p>
-						</article>
-						<footer>
-							<a href="https://twitter.com/erinjzimmer">Contact</a> | <a href="https://cogent.co/careers">Careers</a>
-						</footer>
-					</div>
-				<div class="notes">
-						make them all the same size as the content
-					</div>					
+					signs normal flow might not be for you
+					- i want all the elements to be the same size (consider grid)
+					- i want elements to take up the available space (consider flex, or grid)
 				</section>
 
 				<section>
@@ -438,28 +423,27 @@
 					<div class="notes">
 						positioning
 						- each element appears below the previous one, we can't change that
-						- move vertically, using margin-top 
+						- move vertically, using margin-top
 						- move laterally using margin-left/margin-left with negative value/margin: auto
-						- position: relative - but nothing else moves with it (also transform)
-						- position: absolute/position: fixed/float take it out of the flow completely
 					</div>
 				</section>
 
 				<section>
-					<h3>inline elements</h3>
-					<code>
-						<strong class="fragment">&lt;span&gt;</strong> <span class="fragment">&lt;a&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;input&gt;
-						&lt;select&gt; &lt;textarea&gt; &lt;button&gt;</span>
-					</code>
-					<pre class="fragment"><code class="css">
-* {
-	display: inline
-}
-					</code></pre>
-					<div class="notes">
-						there are others
-						stuff that appears along with other stuff
-					</div>
+					signs normal flow might not be for you
+					- i want siblings to be positioned next to each other (consider flex, grid)
+					- i want something centred vertically (consider flex, grid, transform)
+					- i want something positioned relative to its siblings (consider flex, grid)
+					if you're trying to do any of these things in normal flow, you're using the wrong tool
+					and your life will be difficult
+				</section>
+
+				<section>
+					bonus sign that normal flow might not be for you: margin-collapse
+				</section>
+
+				<section>
+					inline elements
+					ones from before + display: inline
 				</section>
 
 				<section>
@@ -503,9 +487,14 @@
 							</div>
 							<div class="linebox">
 								<span>yellow</span><span>sun</span>
-							</div>	
+							</div>
 						</div>
 					</div>
+				</section>
+
+				<section>
+					things about line-boxes that we can and can't change.
+					is there a way to show line-boxes in demo?
 				</section>
 
 				<section>
@@ -517,7 +506,7 @@
 						can see the line-boxes in firefox
 						element can break over line boxes
 						we can shift element laterally using margin
-						we can't shift vertically using padding or margin 
+						we can't shift vertically using padding or margin
 						line boxes can be different sizes
 						we can move text relative to the line box
 						middle = baseline + half x height
@@ -525,950 +514,22 @@
 				</section>
 
 				<section>
-					<h2 style="margin: auto">Normal flow = document layout</h2>
+					bonus display type: inline-block
 				</section>
 
 				<section>
-					<h2 class="shiny" style="margin: auto; padding: .5ch">flex layout</h2>
+					inline-block demo + example elements
 				</section>
 
 				<section>
-					<style>
-						.container.centre {
-							background: linear-gradient(transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor calc(50% + 1px), transparent calc(50% + 1px)),
-							linear-gradient(90deg, transparent, transparent calc(50% - 1px), currentColor calc(50% - 1px), currentColor calc(50% + 1px), transparent calc(50% + 1px))
-						}
-
-						#flex-centre:checked ~ .container.centre  {
-							display: flex;
-							align-items: center;
-							justify-content: center;
-						}
-
-						.deploy-flex {
-							display: none;
-						}
-
-						.deploy-flex + label {
-							display: flex;
-							justify-content: center;
-							gap: .25em;
-							align-items: center;
-							margin-bottom: 1em;
-						}
-
-						.deploy-flex + label::before {
-							content: '';
-							width: 40px;
-							height: 40px;
-							border: 4px solid;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-						}
-
-						.deploy-flex:checked + label::before {
-							content: '✔️';
-							font-size: .7em;
-						}
-					</style>
-					<input id="flex-centre" type="checkbox" class="deploy-flex" />
-					<label for="flex-centre">deploy flex</label>
-					<div class="container centre">
-						<div>❌</div>
-					</div>
+					inline block is a hack, the new display values
 				</section>
 
 				<section>
-					<style>
-						.flex-footer {
-							overflow: auto;
-						}
-
-						.flex-footer h1 {
-							font-size: 1.8em;
-							text-align: center;
-						}
-						.flex-footer footer {
-							font-size: 24px;
-							background: var(--gradient-end);
-							margin: -20px;
-							margin-top: 20px;
-							padding: 10px;
-							color: white;
-						}
-						.flex-footer a {
-							color: inherit;
-							text-decoration: underline;
-						}
-
-						.flex-footer article {
-							font-size: 24px;
-							flex-grow: 1;
-							text-align: left;
-						}
-
-						#flex-footer:checked ~ .flex-footer {
-							display: flex;
-							flex-direction: column;
-						}
-					</style>
-					<input id="flex-footer" type="checkbox" class="deploy-flex" />
-					<label for="flex-footer">deploy flex</label>					
-					<div class="browser flex-footer" style="height: 600px; width: 600px; margin: auto; background: white">
-						<article id="add-content">
-							<h1>Chapter 1</h1>
-							<p>
-							Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
-							</p>
-						</article>
-						<footer>
-							<a href="https://twitter.com/erinjzimmer">Contact</a> | <a href="https://cogent.co/careers">Careers</a>
-						</footer>
-					</div>
-					<script>
-						const paragraphs = ['Orbiting this at a distance of roughly ninety-two million miles is an utterly insignificant little blue green planet whose ape-descended life forms are so amazingly primitive that they still think digital watches are a pretty neat idea.',
-						'This planet has - or rather had - a problem, which was this: most of the people living on it were unhappy for pretty much of the time.',
-					'Many solutions were suggested for this problem, but most of these were largely concerned with the movements of small green pieces of paper, which is odd because on the whole it wasn\'t the small green pieces of paper that were unhappy.']
-						let index = 0;
-						const stickyFooterContainer = document.querySelector('#add-content')
-						function addTextContent() {
-							const text = paragraphs[index++]
-							const p = document.createElement('p')
-							p.textContent = text;
-							stickyFooterContainer.append(p)
-						}
-					</script>
-					<button style="position: absolute; right: 0; transform: translateX(50%)" onclick="addTextContent()">Add text</button>
-				</section>
-
-				<section>
-					<style>
-						.equal-columns, p.column {
-							font-size: 24px;
-						}
-
-						.equal-columns p, p.column {
-							background: #e96f9794;
-							margin-right: 10px;
-							padding: 20px;
-							border-radius: 5px;
-							margin-top: 0;
-						}
-
-						.equal-columns p {
-							float: left;
-							width: 45%;
-						}
-
-						p.column {
-							margin-right: 0;
-						}
-
-						#equal-columns:checked ~ .equal-columns {
-							display: flex;
-							justify-content: space-around;
-						}
-
-					</style>
-					<input id="equal-columns" type="checkbox" class="deploy-flex" />
-					<label for="equal-columns" style="margin-bottom: 0">deploy flex</label>								
-					<div class="equal-columns" style="width: 600px; justify-self: center; height: min-content">
-						<p>Orbiting this at a distance of roughly ninety-two million miles	is an utterly insignificant little blue green planet whose ape-descended life forms are so amazingly primitive that they still	think digital watches are a pretty neat idea.</p>
-						<p>This planet has - or rather had - a problem, which was this: most	of the people living on it were unhappy for pretty much of the time.</p>
-					</div>
-				</section>
-
-				<section>
-					<h1 style="margin: auto; font-size: 2em">So, how does it work?</h1>
-				</section>
-
-				<section class="flex-container-slide">
-					<style>
-						.flex-container-slide {
-							grid-template-rows: min-content 1fr;
-						}
-						.container.flex-container {
-							width: 100%;
-							height: min-content;
-							align-self: start;
-						}
-					</style>
-					<h3>flex container & flex items</h3>
-					<div class="container flex-container">
-						<p class="column">Orbiting this at a distance of roughly ninety-two million miles	is an utterly insignificant little blue green planet whose ape-descended life forms are so amazingly primitive that they still	think digital watches are a pretty neat idea.</p>
-						<p class="column">This planet has - or rather had - a problem, which was this: most	of the people living on it were unhappy for pretty much of the time.</p>
-					</div>
-					<div class="notes">
-						flex container vs flex items
-						display: flex, width: calc(50% - 5px), margin: 0
-						instead of a linebox, we have a flexbox (show in browser)
-						by default 
-						 - flex items scrunch up instead of breaking over several flexboxes (inside flexbox is normal flow)
-						 - flex item stretches vertically
-					</div>
-				</section>
-
-				<section>
-					<style>
-						nav.email {
-							color: white;
-						}
-
-						nav.email a {
-							color: inherit;
-							padding: 10px 20px;
-							cursor: pointer;
-							border-top-right-radius: 10px;
-							border-top-left-radius: 10px;
-							background: var(--light-blue);
-							box-shadow: -3px 0 4px hsl(0 0% 0% / .2);
-						}
-						nav.email a:hover {
-							color: inherit;
-						}
-
-						nav.email a + a, nav.email a + a:hover {
-							border-left: 1px solid;
-						}
-					</style>
-					<div class="resize" style="margin: auto">
-						<nav class="email">
-							<a>All mail</a>
-							<a>Not read yet</a>
-							<a>Read before</a>
-						</nav>
-					</div>
-					<div class="notes">
-						shrink + nowrap means we can do stuff like this
-					</div>
-				</section>
-
-				<section>
-					<h2 style="margin: auto">Sizing</h2>
-				</section>
-
-				<section class="with-heading">
-					<style>
-						.grow-shrink .element {
-							height: min-content;
-						}
-					</style>
-					<h3>grow & shrink</h3>
-					<div class="resize grow-shrink" style="display: flex; font-size: 24px; width: 600px; height: 500px;">
-						<div class="element">thing 1</div>
-						<div class="element">thing 2</div>
-						<div class="element">thing 3</div>
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.grow-nav {
-							--watermelon: #f63e5f;
-							background: var(--watermelon);
-							color: white;
-							text-transform: uppercase;
-							display: flex;
-						}
-						.grow-nav a, .grow-nav a:hover {
-							color: inherit;
-							padding: 10px 20px;
-							flex-grow: 1;
-						}
-						.grow-nav a + a {
-							border-left: 2px solid;
-						}
-					</style>
-					<div class="resize" style="margin: auto">
-						<nav class="grow-nav">
-							<a href="https://cogent.co">About</a>
-							<a href="https://cogent.co/blog">Blog</a>
-							<a href="https://cogent.co/careers">Careers</a>
-						</nav>
-					</div>
-					<div class="notes">
-						no matter how big the container gets, the titles will stretch out to fill the space
-					</div>
-				</section>
-
-				<section>
-					<h2 style="margin: auto">Positioning</h2>
-				</section>
-
-
-				<section>
-					<style>
-						.box-direction {
-							display: flex;
-							width: 500px;
-							height: 500px;
-						}
-						.box-direction .element {
-							height: 100px;
-						}
-					</style>
-					<h3>flex-direction</h3>
-					<div class="container box-direction">
-						<div class="element big"><img src="images/ship.png" /></div>
-						<div class="element small"><img src="images/nibbler.png"></div>
-						<div class="element medium"><img src="images/robot-devil.png" /></div>
-					</div>
-					<div class="notes">
-						vertical vs horizontal 
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.browser {
-							background: white;
-							width: 600px;
-							height: 500px;
-							margin: auto;
-						}
-						.flex-footer.live article {
-							flex-grow: unset;
-						}
-					</style>
-					<div class="browser flex-footer live">
-						<article>
-							<h1>Chapter 1</h1>
-							<p>
-							Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
-							</p>
-						</article>
-						<footer>
-							<a href="https://twitter.com/erinjzimmer">Contact</a> | <a href="https://cogent.co/careers">Careers</a>
-						</footer>
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.flex-position .element {
-							height: 100px;
-						}
-					</style>
-					<h3>Positioning flex items</h3>
-					<div class="container flex-position" style="height: 500px; width: 600px; display: flex;">
-						<div class="element big"><img src="images/ship.png" /></div>
-						<div class="element small"><img src="images/nibbler.png"></div>
-						<div class="element medium"><img src="images/robot-devil.png" /></div>
-					</div>
-					<div class="notes">
-						one of the most useful things
-						demo align-items & justify-content
-					</div>
-				</section>
-
-				<section>
-					<div class="container centre">
-						<div>❌</div>
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.aligned {
-							width: max-content;
-							height: 300px;
-							padding: 2em;
-						}
-					</style>
-					<div class="container aligned">
-						<img src="images/nichelle-nichols.png">The Head Museum<img src="images/leonard-nimoy.png">
-					</div>
-					<div class="notes">
-						super helpful for aligning text & images
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.graph {
-							width: 90%; 
-							height: 90%; 
-							border-left: 3px solid; 
-							border-bottom: 3px solid; 
-							margin-left: auto; 
-							margin-right: auto;
-							display: flex;
-							align-items: end;
-							justify-content: space-around;
-						}
-
-						.graph .bar {
-							width: 100px;
-							background: linear-gradient(135deg, white, var(--light-blue), var(--dark-blue));
-							border: 4px solid white;
-							border-bottom: none;
-						}
-					</style>
-					<div class="container resize" style="border: none; position: relative">
-						<div style="font-size: .6em; font-weight: bold; position: absolute; right: 0; width: 200px">Number of popplers eaten</div>
-						<div class="graph">
-							<div class="bar" style="height: 200px"></div>
-							<div class="bar" style="height: 30px"></div>
-							<div class="bar" style="height: 300px;"></div>
-							<div class="bar" style="height: 100px;"></div>
-						</div>
-					</div>
-					<div class="notes">
-						and we can use it for more outlandish things
-					</div>
-				</section>
-
-				<section>
-					<h3 style="margin: auto">
-						size & position is only relative to<br> other elements in the same flexbox
-					</h3>
-				</section>
-
-				<section>
-					<style>
-						.limitations {
-							height: min-content;
-							margin: auto;
-							margin-top: 0;
-							gap: 10px;
-						}
-						.limitations .card {
-							border: 2px solid;
-							width: 200px;
-							background: white;
-						}
-						.limitations .card div:first-of-type {
-							font-size: 14px;
-						}
-						.limitations .card div:nth-of-type(2) {
-							font-size: 16px;
-							font-weight: bold;
-						}
-						.limitations .card img {
-							max-width: 100%;
-						}
-					</style>
-					<div class="limitations resize">
-						<div class="card">
-							<img src="images/etsy-brain-slug.avif">
-							<div>Futurama Brain Slug light</div>
-							<div>AU$21.97</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-custom-portrait.avif" alt="">
-							<div>Custom Family Portrait</div>
-							<div>AU$16.19</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-new-new-york.avif" alt="">
-							<div>New New York Travel Poster</div>
-							<div>AU$21.97</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-slurm.avif" alt="">
-							<div>Slurm Earrings</div>
-							<div>$AU14.95</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-fry.avif" alt="">
-							<div>Fry pin</div>
-							<div>AU$12.50</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-futurama-poster.webp" alt="">
-							<div>Futurama Framed Poster</div>
-							<div>AU$79.99</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-money-wallet.avif" alt="">
-							<div>Leather Wallet</div>
-							<div>AU$71.78</div>
-						</div>
-					</div>
-					<div class="notes">
-						size and position is _per flexbox_
-						no way to align things between flexboxes
-						if we use grow to fill up the space, that bottom one will fill the whole row
-						(which is what we want sometimes, but other times, we need...)
-					</div>
-				</section>
-
-				<section>
-					<h2 class="shiny" style="margin: auto; padding: .5ch">grid</h2>
-					<div class="notes">
-						no lineboxes or flexboxes 
-						you can create any layout that you like, as long as you like grids
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.grid {
-							display: grid;
-							height: 100%;
-							counter-reset: elements;
-						}
-						.element.counted {
-							counter-increment: elements;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-						}
-						.element.counted::before {
-							content: counter(elements)
-						}
-					</style>
-					<div class="container">
-						<div id="initial-grid-demo"></div>
-					</div>
-					<script>
-						function addGridElement() {
-
-						}
-					</script>
-					<button onclick="addGridElement()">Add element</button>
-					<script>
-						function addGridElement() {
-							const grid = document.getElementById('initial-grid-demo')
-							const element = document.createElement('div')
-							element.classList.add('element', 'counted')
-							element.style.height = '100%'
-							element.style.width = '100%'
-							grid.append(element)
-						}
-					</script>
-					<div class="notes">
-						like a flex container, we create a grid container by giving an element display: grid 
-						any children of the element now become grid items 
-						we set up our grid by defining rows and colums 
-						then, when we place children inside the container, they're laid out according to the grid 
-					</div>
-				</section>
-
-				<section>
-					<style>
-						a.attribution {
-							font-size: .5em;
-							position: absolute;
-							bottom: 1em;
-							transform: translate(calc(-100% - 1em));
-							width: max-content;
-						}
-					</style>
-					<h3>Designing with grids</h3>
-					<div style="position: relative">
-						<img src="images/Thinking_with_Type_Grid_6.gif" alt="" style="max-height: 100%; max-width: 100%">
-						<a class="attribution">http://thinkingwithtype.com/grid/</a>	
-					</div>
-					<div class="notes">
-						if you've ever worked with designers ... 12 column layout
-						columns for layout pre-dates web 
-						setup columns, place elements, potentially spanning several columns
-					</div>
-				</section>
-
-				<section>
-					<div style="position: relative; height: min-content;">
-						<img src="images/BlogArticle-BootstrapGrid.png" alt="">
-						<a class="attribution">https://codelikethis.com/lessons/bootstrap/bootstrap-development</a>
-					</div>
-					<div class="notes">
-						on the web we use 12 columns 
-						not inherently good design 
-						easy to divide up evenly, bootstrap, etc ok for everyone
-					</div>
-				</section>
-
-				<section>
-					<img style="border-radius: 30% 70% 54% 46% / 56% 39% 61% 44%" src="images/amy-nibbler-spaceship.jpg" alt="">
-					<div class="notes">
-						1 size fits all....
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.container-12-column {
-							width: 560px;
-							height: 500px;
-							background-image: url('./images/futurama-tweet.png');
-							background-size: contain;
-							margin: auto;
-							position: relative;
-						}
-
-						table.grid-12-column td {
-							border: 2px solid white;
-						}
-						table.grid-12-column {
-							border-collapse: collapse;
-							position: absolute;
-							width: 100%;
-							height: 100%;
-						}
-					</style>
-					<div class="container-12-column">
-						<table class="grid-12-column fragment">
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>	
-					</div>
-					<div class="notes">
-						tweet doesn't fit in 12 column layout 
-					</div>
-				</section>
-
-				<section>
-					<div class="container-12-column">
-						<table class="grid-12-column">
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
-						</table>	
-					</div>
-					<div class="notes">
-						it likes 5
-					</div>
-				</section>
-
-
-				<section>
-					<style>
-						.futurama-tweet-grid {
-							margin: auto;
-							display: grid;
-							width: 800px; 
-							grid-template-columns: 100px repeat(4, 1fr);
-							grid-template-rows: min-content 1fr 200px min-content;
-							background: #15202b;
-							color: white;
-						}
-						.futurama-tweet-grid .avatar, .tweet .avatar {
-							border-radius: 50%;
-						}
-						.futurama-tweet-grid .username, .tweet .username {
-							opacity: 0.6;
-						}
-						.futurama-tweet-grid .button, .tweet .button {
-							stroke: currentColor;
-							fill: currentColor;
-							width: 24px;
-							opacity: .6;
-						}
-						.futurama-tweet-grid .action, .tweet .action {
-							stroke: currentColor;
-							width: 24px;
-							opacity: .6;
-						}
-						.futurama-tweet-grid .image .tweet .image {
-							border-radius: 10px;	
-						}
-						.tweet {
-							width: 560px;
-							height: 500px;
-							border: 4px solid;
-							margin: auto;
-							margin-top: 0;
-							font-size: 20px;
-						}
-						.out {
-							position: fixed;
-							top: 90%;;
-						}
-					</style>
-					<div class="tweet">
-							<img class="avatar out" src="images/tweet-avatar.jpg" style="width: 90%; border-radius: 50%;" />
-							<div class="out">
-								<strong>Futurama Robit</strong>
-								<span class="username">@FuturamaBot3000 · 2h</span>
-							</div>
-							<svg viewBox="0 0 24 24" class="button out">
-								<circle cx="5" cy="12" r="2"></circle>
-								<circle cx="12" cy="12" r="2"></circle>
-								<circle cx="19" cy="12" r="2"></circle>
-							</svg>
-							<div class="out">Welcome to the world of tomorrow! The time is 12:01 am. Good news everyone! Today is Sunday November 21, 3021, that means only 40 days left in the year!</div>
-							<img class="image out" src="images/tweet-image.jpeg" alt="">
-							<svg viewBox="0 0 24 24" class="action out">
-								<path d="M14.046 2.242l-4.148-.01h-.002c-4.374 0-7.8 3.427-7.8 7.802 0 4.098 3.186 7.206 7.465 7.37v3.828c0 .108.044.286.12.403.142.225.384.347.632.347.138 0 .277-.038.402-.118.264-.168 6.473-4.14 8.088-5.506 1.902-1.61 3.04-3.97 3.043-6.312v-.017c-.006-4.367-3.43-7.787-7.8-7.788zm3.787 12.972c-1.134.96-4.862 3.405-6.772 4.643V16.67c0-.414-.335-.75-.75-.75h-.396c-3.66 0-6.318-2.476-6.318-5.886 0-3.534 2.768-6.302 6.3-6.302l4.147.01h.002c3.532 0 6.3 2.766 6.302 6.296-.003 1.91-.942 3.844-2.514 5.176z"></path>
-							</svg>
-							<svg viewBox="0 0 24 24" class="action out">
-								<path d="M23.77 15.67c-.292-.293-.767-.293-1.06 0l-2.22 2.22V7.65c0-2.068-1.683-3.75-3.75-3.75h-5.85c-.414 0-.75.336-.75.75s.336.75.75.75h5.85c1.24 0 2.25 1.01 2.25 2.25v10.24l-2.22-2.22c-.293-.293-.768-.293-1.06 0s-.294.768 0 1.06l3.5 3.5c.145.147.337.22.53.22s.383-.072.53-.22l3.5-3.5c.294-.292.294-.767 0-1.06zm-10.66 3.28H7.26c-1.24 0-2.25-1.01-2.25-2.25V6.46l2.22 2.22c.148.147.34.22.532.22s.384-.073.53-.22c.293-.293.293-.768 0-1.06l-3.5-3.5c-.293-.294-.768-.294-1.06 0l-3.5 3.5c-.294.292-.294.767 0 1.06s.767.293 1.06 0l2.22-2.22V16.7c0 2.068 1.683 3.75 3.75 3.75h5.85c.414 0 .75-.336.75-.75s-.337-.75-.75-.75z"></path>
-							</svg>
-							<svg viewBox="0 0 24 24" class="action out">
-								<path d="M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95 8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646 2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0 6.376-7.454 13.11-10.037 13.157H12zM7.354 4.225c-2.08 0-3.903 1.988-3.903 4.255 0 5.74 7.034 11.596 8.55 11.658 1.518-.062 8.55-5.917 8.55-11.658 0-2.267-1.823-4.255-3.903-4.255-2.528 0-3.94 2.936-3.952 2.965-.23.562-1.156.562-1.387 0-.014-.03-1.425-2.965-3.954-2.965z"></path>
-							</svg>
-							<svg viewBox="0 0 24 24" class="action out">
-								<path d="M17.53 7.47l-5-5c-.293-.293-.768-.293-1.06 0l-5 5c-.294.293-.294.768 0 1.06s.767.294 1.06 0l3.72-3.72V15c0 .414.336.75.75.75s.75-.336.75-.75V4.81l3.72 3.72c.146.147.338.22.53.22s.384-.072.53-.22c.293-.293.293-.767 0-1.06z"></path><path d="M19.708 21.944H4.292C3.028 21.944 2 20.916 2 19.652V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 .437.355.792.792.792h15.416c.437 0 .792-.355.792-.792V14c0-.414.336-.75.75-.75s.75.336.75.75v5.652c0 1.264-1.028 2.292-2.292 2.292z"></path>
-							</svg>		
-						</div>
-				</section>
-
-				<section>
-					<pre><code>.tweet {
-	display: grid;
-	grid-template-columns: repeat(9, 1fr);
-}
-
-.title {
-	grid-column: span 7
-}
-
-.text, .image {
-	grid-column: 2 / -1;
-}
-
-.action {
-	grid-column: span 2;
-}
-
-.action:nth-of-type(2) {
-	grid-column: 2 / span 2;
-}</code></pre>
-				</section>
-
-				<section>
-					<style>
-						.named-areas .grid {
-							grid-template-columns: 65px repeat(4, 1fr);
-							grid-template-rows: 30px 60px 1fr 45px;
-							grid-template-areas: 'avatar title title title menu'
-												           'avatar text  text  text  text'
-																	 '.      img   img   img   img'
-																	 '.      btn   btn   btn   btn';
-							--background-alpha: .8
-
-						}
-						.named-areas .grid * {
-							color: white;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-							text-shadow: 2px 2px black;
-						}
-
-						.named-areas .grid .avatar {
-							grid-area: avatar;
-							border: 2px solid hsl(125, 94%, 41%);
-							background: hsl(125 94% 41% / var(--background-alpha));
-							writing-mode: vertical-lr; 	
-						}
-						.named-areas .grid .title {
-							grid-area: title;
-							border: 2px solid hsl(293, 82%, 51%);
-							background: hsl(293 82% 51% / var(--background-alpha));
-						}
-						.named-areas .grid .menu {
-							grid-area: menu;
-							border: 2px solid hsl(347, 84%, 52%);
-							background: hsl(347 84% 52% / var(--background-alpha));
-						}
-						.named-areas .grid .text {
-							grid-area: text;
-							border: 2px solid hsl(224, 84%, 52%);
-							background: hsl(224 84% 52% / var(--background-alpha));							
-						}
-						.named-areas .grid .image {
-							grid-area: img;
-							border: 2px solid hsl(61, 90%, 52%);
-							background: hsl(61 90% 52% / var(--background-alpha));							
-						}
-						.named-areas .grid .button {
-							grid-area: btn;
-							border: 2px solid hsl(29, 90%, 52%);
-							background: hsl(29 90% 52% / var(--background-alpha));							
-						}
-					</style>
-					<div class="container-12-column named-areas">
-						<div class="grid">
-							<div class="avatar">avatar</div>
-							<div class="title">title</div>
-							<div class="menu">menu</div>
-							<div class="text">text</div>
-							<div class="image">img</div>
-							<div class="button">btn</div>
-						</div>
-					</div>
-					<div class="notes">
-						more semantic way of describing layout
-					</div>
-				</section>
-
-				<section>
-					<pre><code class="css" data-noescape="">
-.tweet {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	grid-template-areas: 'avatar title title title menu'
- 											 'avatar text  text  text  text'
-											 '.      img   img   img   img'
-											 '.      btn   btn   btn   btn';
-}
-<span class="fragment">
-.avatar {
-	grid-area: avatar;
-}</span>
-<span class="fragment">
-.title {
-	grid-area: title;
-}</span>
-					</code></pre>
-					<div class="notes">
-						generic, 12-column layout -> semantic specific layout
-						still using equal sized columns 
-						with grid, we can make columns all different sizes - or not even specify an 
-						exact size. just give the browser some guidelines at let it work it out at runtime
-					</div>
-				</section>
-
-				<section class="with-heading" data-background-image="images/Seymour.png" data-background-size="300px" data-background-position="bottom left">
-					<style>
-						.pizza-menu {
-							font-size: .8em;
-							font-family: 'League Gothic';
-							display: grid;
-							text-align: left;
-							font-family: Kalam
-						}
-						.block {
-							display: block;
-						}
-					</style>
-					<h3 style="margin-bottom: 1em;">Responsive grid layouts</h3>
-					<div class="resize" style="background: var(--dark-blue); color:hsl(60, 4%, 82%); width: 830px;">
-						<h4 style="font-family: Raleway; color: white">Panucci's Pizza</h4>
-						<div class="pizza-menu" style="grid-template-columns: 200px 500px 90px">
-							<div>Hawaiian</div>
-							<div>Ham, Cheese & Pineapple</div>
-							<div>$18.00</div>
-							<div>Aussie</div>
-							<div>Ham, Cheese, Pineapple & Egg</div>
-							<div>$18.00</div>
-							<div>Meatlovers Deluxe</div>
-							<div>Meat, Meat, Meat & Pineapple</div>
-							<div contenteditable>$18.00</div>
-						</div>
-					</div>
-					<div class="notes">
-						fr: make description 1fr, make name 1fr, make description 2fr
-						make price max-content
-						make name minmax(max-content, 1fr)
-					</div>
-				</section>
-
-				<section>
-					<style>
-						.auto-columns {
-							height: min-content;
-							margin: auto;
-							margin-top: 0;
-							gap: 10px;
-							width: 100%;
-						}
-						.auto-columns .card {
-							border: 2px solid;
-							background: white;
-						}
-						.auto-columns .card div:first-of-type {
-							font-size: 14px;
-						}
-						.auto-columns .card div:nth-of-type(2) {
-							font-size: 16px;
-							font-weight: bold;
-						}
-						.auto-columns .card img {
-							max-width: 100%;
-						}
-					</style>
-					<div class="auto-columns resize">
-						<div class="card">
-							<img src="images/etsy-brain-slug.avif">
-							<div>Futurama Brain Slug light</div>
-							<div>AU$21.97</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-custom-portrait.avif" alt="">
-							<div>Custom Family Portrait</div>
-							<div>AU$16.19</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-new-new-york.avif" alt="">
-							<div>New New York Travel Poster</div>
-							<div>AU$21.97</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-slurm.avif" alt="">
-							<div>Slurm Earrings</div>
-							<div>$AU14.95</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-fry.avif" alt="">
-							<div>Fry pin</div>
-							<div>AU$12.50</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-futurama-poster.webp" alt="">
-							<div>Futurama Framed Poster</div>
-							<div>AU$79.99</div>
-						</div>
-						<div class="card">
-							<img src="images/etsy-money-wallet.avif" alt="">
-							<div>Leather Wallet</div>
-							<div>AU$71.78</div>
-						</div>
-					</div>
-					<div class="notes">
-						sometimes we don't know how many columns we want 
-						we know min size and just want whatever will fit
-						also want them to stretch to take up available space
-						grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-					</div>
-				</section>
-
-				<section>
-					<table>
-						<thead>
-							<tr>
-								<th>layout</th>
-								<th style="text-align: center">💖</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="fragment">
-								<td>normal flow</td>
-								<td style="text-align: center">documents</td>
-							</tr>
-							<tr class="fragment">
-								<td>flex</td>
-								<td style="text-align: center">1-dimensional layouts</td>
-							</tr>
-							<tr class="fragment">
-								<td>grid</td>
-								<td style="text-align: center">2-dimensional layouts</td>
-							</tr>
-						</tbody>
-					</table>
+					conclusion
+					normal flow is everywhere, it's important to understand
+					mental model = document
+					block vs inline
 				</section>
 
 				<section class="end">
@@ -1483,8 +544,8 @@
 						}
 					</style>
 
-					<div class="fragment"><a href="https://layouts.ez.codes">https://layouts.ez.codes</a></div>	
-					<div class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout</a></div>	
+					<div class="fragment"><a href="https://layouts.ez.codes">https://layouts.ez.codes</a></div>
+					<div class="fragment"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout">https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout</a></div>
 
 					<div class="fragment">
 						<div>@ErinJZimmer</div>
