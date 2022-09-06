@@ -70,6 +70,7 @@ body {
 }
 .fragment.strike.visible {
   text-decoration: line-through;
+  opacity: 0.3;
 }
 .fragment.outline.visible {
   outline: 4px dashed currentColor;

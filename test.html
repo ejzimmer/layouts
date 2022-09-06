@@ -5,29 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .flex {
+    body {
       display: flex;
-      gap: 10px;
-      border: 2px solid currentColor;
-      flex-wrap: wrap;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
     }
-    .resize {
-      overflow: hidden;
-      resize: horizontal;
-    }
-    .element {
+    .container {
+      width: 20vw;
+      height: 20vw;
+      border: 20px dashed darkblue;
+      background: hsl(220, 50%, 80%);
       padding: 40px;
-      outline: 1px dashed currentColor;
     }
   </style>
 </head>
 <body>
-  <div class="flex resize">
+  <div class="container">
     <div class="element">one</div>
     <div class="element">two hundred and forty three</div>
     <div class="element">someverylongcontentthattakesupabunchofspace</div>
     <div class="element">four</div>
     <div class="element">seventy-five</div>
+    <input type="checkbox" />
   </div>
 </body>
 </html>
