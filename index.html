@@ -350,7 +350,7 @@
 					<style>
 						.descendant-diagram .box {
 							border: 2px dashed;
-							background-color: var(--gradient-start);
+							background: var(--gradient-start);
 							position: relative;
 							text-align: left;
 							margin: 1rem;
@@ -366,6 +366,19 @@
 							border: 1px solid;
 							font-size: 1rem;
 							cursor: pointer;
+						}
+
+						.descendant-diagram .box.grid-layout {
+							--green: hsl(125, 71%, 80%);
+							background: repeating-linear-gradient(45deg, var(--green) 20px, var(--green) 40px, transparent 40px, transparent 60px)	
+						}
+
+						.descendant-diagram .box.flex-layout {
+							--blue: hsl(200, 71%, 80%);
+							--yellow: hsl(60, 71%, 90%);
+							background: radial-gradient(circle, var(--blue) 20px, var(--yellow) 20px, var(--yellow));
+							background-repeat: repeat;
+							background-size: 60px 60px;
 						}
 					</style>
 
@@ -392,12 +405,14 @@
 						changeToGridButton.addEventListener('click', function() {
 							this.parentElement.style.display = 'grid'
 							this.textContent = 'grid layout'
+							this.parentElement.classList.add('grid-layout')
 						})
 
 						const changeToFlexButton = document.getElementById('change-to-flex')
 						changeToFlexButton.addEventListener('click', function() {
 							this.parentElement.style.display = 'flex'
 							this.textContent = 'flex layout'
+							this.parentElement.classList.add('flex-layout')
 						})
 
 					</script>
