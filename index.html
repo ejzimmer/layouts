@@ -376,7 +376,7 @@
 						.descendant-diagram .box.flex-layout {
 							--blue: hsl(200, 71%, 80%);
 							--yellow: hsl(60, 71%, 90%);
-							background: radial-gradient(circle, var(--blue) 20px, var(--yellow) 20px, var(--yellow));
+							background: radial-gradient(circle, var(--yellow) 20px, var(--blue) 20px, var(--blue));
 							background-repeat: repeat;
 							background-size: 60px 60px;
 						}
@@ -458,12 +458,20 @@
 				</section>
 
 				<section>
+					<style>
+						.fancy-text {
+							background-clip: text;
+							-webkit-text-stroke: var(--dark-blue) 2px;
+							color: transparent;
+							background-image: linear-gradient(var(--light-blue) 40%, var(--dark-blue));
+						}
+					</style>
 					<div style="height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 1em">
 					<code>
 						&lt;article&gt; &lt;details&gt; &lt;p&gt; &lt;fieldset&gt; &lt;header&gt; &lt;h1/2/3/4/5/6&gt;
 						&lt;footer&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;nav&gt; &lt;section&gt;
 					</code>
-					<code class="fragment">
+					<code class="fancy-text fragment" style="font-size: 2.5em">
 						&lt;div&gt;
 					</code>
 					<pre class="fragment"><code class="css">
@@ -517,24 +525,73 @@
 							display: grid;
 							grid-template-columns: max-content;
 							grid-auto-rows: min-content;
+							position: relative;
+						}
+						.all-the-same-size .tag {
+							cursor: pointer;
+							border: 2px solid;
+							border-radius: 500px;
+							padding: .15em .5em;
+							margin-bottom: 5px;
+						}
+						.all-the-same-size img {
+							width: 0.75em;
 						}
 					</style>
 					<div class="container all-the-same-size">
-						<div class="element" contenteditable>
-							some content
+						<div class="tag" contenteditable>
+							🍽️ restaurants
 						</div>
-						<div class="element" contenteditable>
-							different content
+						<div class="tag" contenteditable>
+							🏩 hotels
 						</div>
-						<div class="element" contenteditable>
-							more content
+						<div class="tag" contenteditable>
+							🏺 museums
+						</div>
+						<div class="tag" contenteditable>
+							💸 ATMs
 						</div>
 					</div>
 				</section>
 
 				<section>
+					<style>
+						.all-the-same-size .tag:focus-visible {
+							outline: none;
+						}
+						.tags-fit-content {
+							position: absolute;
+							bottom: 10px;
+							width: fit-content;
+							right: 10px;
+							margin: 0;
+						}
+					</style>
+					<div class="container all-the-same-size" style="display: block">
+						<div class="tags-container" style="outline: 2px dashed; width: fit-content; border-radius: 0; padding: 0">
+							<div class="tag" contenteditable="">
+								🍽️ restaurants
+							</div>
+							<div class="tag">
+								🏩 hotels
+							</div>
+							<div class="tag">
+								🏺 museums
+							</div>
+							<div class="tag">
+								💸 ATMs
+							</div>	
+						</div>
+						<pre class="tags-fit-content fragment"><code>.tag-container {
+	width: fit-content;
+}</code></pre>	
+					</div>
+				</section>
+
+
+				<section>
 					<div style="display: flex; flex-direction: column; border: 4px dashed; background: white">
-					<heading style="border-bottom: 2px solid; padding: 20px; margin: 0"><h2>Good news everyone</h2></heading>
+					<header style="border-bottom: 2px solid; padding: 20px; margin: 0"><h2>Good news everyone</h2></header>
 					<div style="flex-grow: 1; padding: 100px" contenteditable> I'm sending you on an extremely controversial mission!</div>
 					<footer style="border-top: 2px solid; height: 80px; padding: 20px">
 						<svg role="img" height="100%" viewBox="0 0 22 17" fill="none">
@@ -564,6 +621,27 @@
 						  </svg>
 					</footer>
 					</div>
+					<pre class="fragment transient" style="position: absolute; top: 50%; left: 50%; transform: translateX(-50%); width: fit-content"><code>
+.header {
+	height: var(--header-height);
+}
+.content {
+	height: calc(100% - var(--header-height) - var(--footer-height));
+}
+.footer {
+	height: var(--footer-height)
+}
+					</code></pre>
+					<pre class="fragment" style="position: absolute; bottom: 50px; right: 50px; width: fit-content"><code>
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1;
+}
+					</code></pre>
 				</section>
 
 				<section>
@@ -588,61 +666,242 @@
 					</div>
 				</section>
 
+				<section class="margin-collapse">
+					<style>
+						.margin-collapse p {
+							font-size: 30px;
+							margin-block: 20px;
+						}
+						.margin-collapse h4 {
+							margin-bottom: 40px;
+						}
+						.margin-collapse figure {
+							margin-block: 10px;
+							width: 50%;
+							margin-inline: auto;
+						}
+					</style>
+					<h3>margin collapse</h3>
+					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4	0px">
+						<div>
+							<h4>chapter 1</h4>
+							<p>
+								Far out inthe uncharted
+								backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
+							</p>
+							<figure>
+								<img src="images/Put_Your_Head_on_My_Shoulders_(Main_Episode)_-_67.webp">
+							</figure>
+							<p>
+								Orbiting this at a distance of roughly ninety-two million miles is an utterly insignificant little blue green planet whose ape-descended life forms are so amazingly primitive that they still think digital watches are a pretty neat idea
+							</p>
+						</div>
+						<div>
+							<h4>chapter 2</h4>
+							<figure>
+								<img src="images/futurama_501_hero.jpg" >
+							</figure>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>positioning</h3>
+					<div class="container">
+						<div class="element" contenteditable></div>
+						<div class="element" contenteditable></div>
+						<div class="element" contenteditable></div>
+					</div>
+				</section>
+
+
+				<section>
+					<h3>positioning</h3>
+					<div class="container" style="display: flex; flex-direction: column; justify-content: center">
+						<div class="element" contenteditable></div>
+						<div class="element" contenteditable></div>
+						<div class="element" contenteditable></div>
+					</div>
+					<pre class="fragment" style="position: absolute; bottom: 10%; right: 40px; width: fit-content"><code>
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>positioning</h3>
+					<div class="container" style="display: flex; flex-direction: column; justify-content: end">
+						<div class="element" contenteditable></div>
+						<div class="element" contenteditable></div>
+						<div class="element" contenteditable></div>
+					</div>
+					<pre class="fragment" style="position: absolute; bottom: 10%; right: 40px; width: fit-content"><code>
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+					</code></pre>
+				</section>
+
 				<section>
 					<style>
 						.container.side-by-side {
 							display: flex;
+							flex-wrap: wrap;
+							align-content: start;
+							gap: 3px;
+							position: relative;
 						}
-						.container.side-by-side .element {
-							flex-grow: 1;
-							height: 100px;
+						.id-card {
+							color: white;
+							display: flex;
+							border: 4px solid var(--dark-blue);
+							font-weight: bold;
+							font-size: 20px;
+							align-items: center;
+							padding-right: 10px;
+							border-radius: 10px;
+							background: linear-gradient(45deg, var(--light-blue), var(--dark-blue));
+							box-shadow: inset 0 0 4px 1px hsl(202 69% 15% / .4)
+						}
+						.id-card img {
+							height: 80px
 						}
 					</style>
 					<div class="container side-by-side">
-						<div class="element"></div>
-						<div class="element"></div>
-						<div class="element"></div>
-						<div class="element"></div>
+						<div class="id-card">
+							<img src="images/amy.png"> Amy
+						</div>
+						<div class="id-card">
+							<img src="images/nibbler.png"> <div style="margin-left: 10px">Nibbler</div>
+						</div>
+						<div class="id-card">
+							<img src="images/nichelle-nichols.jpg"> Nichelle Nichols
+						</div>
+						<div class="id-card">
+							<img src="images/dr__zoidberg_by_captainedwardteague_ddbr8b2-pre.png"> <div style="margin-left: -30px">Dr Zoidberg</div>
+						</div>
+						<div class="id-card">
+							<img src="images/mom.png"> Mom
+						</div>
+						<div class="id-card">
+							<img src="images/professor.png" alt=""> Professor Farnsworth
+						</div>
+						<pre class="fragment" style="width: fit-content; position: absolute; bottom: -20px; right: -20px; margin: 0"><code>
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: start;
+}
+						</code></pre>
 					</div>
 				</section>
 
 				<section>
 					<style>
-						.container.relative-to-end {
-							display: flex;
-							flex-direction: column;
-							align-items: end;
-							justify-content: end;
-						}
-						.container.relative-to-end .element {
-							width: 400px;
+						.container.side-by-side-grid {
+							display: grid;
+							grid-template-columns: repeat(3, 1fr);
+							align-content: start;
+							gap: 3px;
+							position: relative;
 						}
 					</style>
-					<div class="container relative-to-end">
-						<div class="element">content</div>
-						<div class="element">other content</div>
-						<div class="element">yep, content</div>
+					<div class="container side-by-side-grid">
+						<div class="id-card">
+							<img src="images/amy.png"> Amy
+						</div>
+						<div class="id-card">
+							<img src="images/nibbler.png"> <div style="margin-left: 10px">Nibbler</div>
+						</div>
+						<div class="id-card">
+							<img src="images/nichelle-nichols.jpg"> Nichelle Nichols
+						</div>
+						<div class="id-card">
+							<img src="images/dr__zoidberg_by_captainedwardteague_ddbr8b2-pre.png"> <div style="margin-left: -30px">Dr Zoidberg</div>
+						</div>
+						<div class="id-card">
+							<img src="images/mom.png"><div style="margin-left: 10px">Mom</div>
+						</div>
+						<div class="id-card">
+							<img src="images/professor.png" alt=""> <div style="margin-left: -5px">Professor Farnsworth</div>	
+						</div>
+						<pre class="fragment" style="width: fit-content; position: absolute; bottom: -20px; right: -20px; margin: 0"><code>
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-content: start;
+}
+						</code></pre>
 					</div>
-				</section>
-
-				<section>
-					<div class="element" style="position: fixed; width: 200px; height: 200px; left: 50%; top: 50%; transform: translate(-50%, -75%)"></div>
 				</section>
 
 				<section>
 					<style>
 						.container.relative-to-sibling {
 							display: grid;
-							grid-template-columns: repeat(4, 1fr);
-							grid-template-rows: repeat(4, 1fr);
+							grid-template-columns: repeat(2, 1fr);
+							background: url('images/starfield.jpg');
+							background-size: cover;
+							width: 80%;
+							height: min-content;
+							position: relative;
+						}
+
+						.container.relative-to-sibling .ad-copy {
+							color: white;
+							border: 4px solid white;
+							border-radius: 20px;
+							background: hsl(202 69% 15% / .8);
+							padding: .2em .5em;
+							font-size: 20px;
+						}
+						.container.relative-to-sibling h4 {
+							color: inherit;
+							font-size: 40px;
 						}
 					</style>
 					<div class="container relative-to-sibling">
-						<div class="element" style="grid-column: 1; grid-row: 1"></div>
-						<div class="element" style="grid-column: 2; grid-row: 2"></div>
-						<div class="element" style="grid-column: 3; grid-row: 3"></div>
-						<div class="element" style="grid-column: 4; grid-row: 4"></div>
+						<div class="ad-copy">
+							<h4>We care</h4>
+							<p>Our crew is replaceable. Your package isn't.</p>
+						</div>
+						<div  style="grid-column: 2; grid-row: 2">
+							<img src="images/Planet_Express_Logo.svg">
+						</div>
+						<div class="ad-copy" style="grid-row: 3">
+							<h4>Our business</h4>
+							<p>We'll use our giant spaceship to deliver your package, no matter how uneconomical it is</p>
+						</div>
+					<pre class="fragment" style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%)"><code>
+.container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.logo {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.our-business {
+	grid-row: 3;
+}
+
+					</code></pre>
 					</div>
+				</section>
+
+				<section class="with-heading">
+						<h3>Block elements</h3>
+						<ul>
+							<li>Sized absolutely, or relative to viewport, container, or content</li>
+							<li>Positioned using margin</li>
+						</ul>
 				</section>
 
 				<section>
@@ -657,7 +916,7 @@
 					<code>
 						&lt;a&gt; &lt;abbr&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;time&gt; &lt;video&gt;					
 					</code>
-					<code class="fragment">
+					<code class="fragment fancy-text" style="font-size: 2em">
 						&lt;span&gt;
 					</code>
 					<pre class="fragment"><code class="css">
@@ -686,12 +945,6 @@
 				</section>
 
 				<section>
-					<div style="margin: auto">
-						Some text with a <button style="width: 200px; height: 200px;">button</button> in it
-					</div>
-				</section>
-
-				<section>
 					<style>
 						.linebox {
 							border: 2px dashed;
@@ -704,7 +957,7 @@
 					<h3>Lineboxes</h3>
 					<div class="container">
 						<div class="linebox fragment">
-							<span class="fragment">Far</span> <span class="fragment">out</span> <span class="fragment">in</span> <span class="fragment">the</span> <strong class="fragment">uncharted</strong> <span class="fragment transient">backwaters</span>
+							<span class="fragment">Far</span> <span class="fragment">out</span> <span class="fragment">in</span> <span class="fragment">the</span> <span class="fragment">uncharted</span> <span class="fragment transient">backwaters</span>
 						</div>
 						<div class="linebox fragment">
 							<span class="fragment">backwaters</span><span class="fragment">of</span><span class="fragment">the</span><span class="fragment transient">unfashionable</span>
@@ -727,11 +980,36 @@
 				</section>
 
 				<section>
+					<style>
+						body {
+							--light-purple: hsl(259, 71%, 80%, .5);
+						}
+					</style>
 					<h3>Lineboxes</h3>
 					<div class="container">
-					Far out in the <strong>uncharted</strong>
-					backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun
+					Far out in <span style="background: var(--light-purple); border: 4px dashed">the uncharted
+					backwaters</span> of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun
 						</div>
+				</section>
+
+				<section>
+					<style>
+						body {
+							--light-purple: hsl(259, 71%, 80%, .5);
+						}
+					</style>
+					<h3>Lineboxes</h3>
+					<div class="container">
+					Far out in <span style="background: var(--light-purple);">the <strong>uncharted</strong>
+					backwaters</span> of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun
+						</div>
+				</section>
+
+				<section>
+					<div style="margin: auto">
+						<p class="fragment"><em>Block elements</em> create lineboxes</p>
+						<p class="fragment"><em>Inline elements</em> are laid out in lineboxes</p>
+					</div>
 				</section>
 
 				<section>
@@ -751,12 +1029,74 @@
 				</section>
 
 				<section>
+					<div class="container">
+						<img src="images/popplers.png" style="width: 200px">
+					</div>
+				</section>
+
+				<section>
+					<div style="border: 4px dashed; width: max-content; margin: auto;">
+						<span>Delicious popplers!</span> <img src="images/popplers.png" style="width: 200px">
+					</div>
+				</section>
+
+				<section data-background-image="images/robot-devil.png" data-background-size="contain" data-background-position="left">
+					<div style="align-self: center; display: flex; flex-direction: column;">
+						<blockquote style="height: min-content; background: hsl(200 0% 100% / .8)">
+							<code>vertical-align: middle</code><br>
+							Aligns the middle of the element with the baseline plus half the x-height of the parent.
+						</blockquote>
+						<cite style="align-self: end; padding-right: 3em;"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align">MDN</a></cite>
+					</div>
+				</section>
+
+				<section>
+					<div style="border: 4px dashed; width: max-content; margin: auto;">
+						<span>Delicious popplers!</span> <img src="images/popplers.png" style="width: 200px">
+					</div>
+					<blockquote style="height: min-content; background: hsl(200 0% 100% / .8)">
+						<code>vertical-align: middle</code><br>
+						Aligns the middle of the element with the baseline plus half the x-height of the parent.
+					</blockquote>
+				</section>
+
+				<section class="with-heading">
+					<h3>Inline elements</h3>
+					<ul>
+						<li class="fragment">Are the same size as their content</li>
+						<li class="fragment">Position horizontally with margin/text-align</li>
+						<li class="fragment">Position vertically with vertical-align</li>
+						<li class="fragment">Vertical align is relative to the linebox</li>
+					</ul>
+				</section>
+
+				<section>
+					<div style="margin: auto">
+						Some text with<br> a <button style="width: 200px; height: 200px;">button</button> <br></nr>in it
+					</div>
+				</section>
+
+				<section>
+					<img src="images/caniuse-multivalue.png" />
+				</section>
+
+				<section class="with-heading">
+					<h3>Inline-block elements</h3>
+					<ul>
+						<li class="fragment">Live in parent's linebox</li>
+						<li class="fragment">Create lineboxes for their children</li>
+						<li class="fragment">Can set size manually</li>
+					</ul>
+				</section>
+
+				<section>
 					<div>
 					<h2>what did we learn?</h2>
 					<ul>
 						<li class="fragment">Normal flow is everywhere</li>
 						<li class="fragment">Normal flow is trying to lay out a document</li>
-						<li class="fragment">Block, inline, linebox</li>
+						<li class="fragment">Block, inline, inline-block,<br> linebox</li>
+						<li class="fragment">Sometimes normal flow<br> just isn't the answer</li>
 					</ul>
 					</div>
 					<img src="images/robot-devil.png" style="position: fixed; bottom: 0; right: 0; height: 50%;">
