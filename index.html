@@ -330,8 +330,8 @@
 
 				<section data-background-image="images/Character_Scruffy-2783132489.png" data-background-size="contain" data-background-position="left">
 					<div style="align-self: center; display: flex; flex-direction: column;">
-					<blockquote style="height: min-content">elements on a webpage lay out in normal flow if you haven't applied any CSS to change the way they behave</blockquote>
-					<cite style="align-self: end; padding-right: 3em;"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow">MDN</a></cite>
+						<blockquote style="height: min-content">elements on a webpage lay out in normal flow if you haven't applied any CSS to change the way they behave</blockquote>
+						<cite style="align-self: end; padding-right: 3em;"><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow">MDN</a></cite>
 					</div>
 				</section>
 
@@ -409,13 +409,22 @@
 						})
 
 						const changeToFlexButton = document.getElementById('change-to-flex')
-						changeToFlexButton.addEventListener('click', function() {
+						changeToFlexButton.addEventListener('click', function(event) {
+							event.preventDefault();
 							this.parentElement.style.display = 'flex'
 							this.textContent = 'flex layout'
 							this.parentElement.classList.add('flex-layout')
 						})
 
 					</script>
+				</section>
+
+				<section>
+					<ul style="align-self: center; justify-self: center;">
+						<li>What normal flow is for</li>
+						<li>How normal flow works</li>
+						<li>When not to use normal flow</li>
+					</ul>
 				</section>
 
 				<section data-background-image="images/hermes.png" data-background-size="contain" data-background-position="right">
@@ -447,8 +456,16 @@
 						<span class="fragment" data-fragment-index="6">Inline elements</span>
 					</h3>
 					<code>
-						<span class="fragment" data-fragment-index="4">&lt;a&gt; &lt;abbr&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;time&gt; &lt;video&gt;</span>
+						<span class="fragment" data-fragment-index="4">&lt;abbr&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;time&gt; &lt;video&gt;</span>
 					</code>
+				</section>
+				
+				<section class="with-heading">
+					<h2>the rules</h2>
+					<ul>
+						<li class="fragment">Block elements can contain anything</li>
+						<li class="fragment">Inline elements can only contain other inline elements or text nodes</li>
+					</ul>
 				</section>
 
 				<section>
@@ -516,6 +533,22 @@
 						- consider min/max-width/height (example of like a modal or something)
 						- also min/max-content (demo)
 						- scrollbars
+					</div>
+				</section>
+
+				<section data-background-image="images/invisible-kif.jpeg" data-background-size="contain" data-background-position="left">
+					<h2 style="align-self: center; justify-self: end; font-size: 2em; font-family: Kalam; font-weight: bold; background: hsl(0 0% 100% / .8); padding: 1em; border-radius: 20px">
+						The web is<br> responsive<br> by default
+					</h2>
+				</section>
+
+
+				<section class="border">
+					<div>
+						<h3>sizing</h3>
+						<div contenteditable class="normal-wrap">
+								CSS is Awesome
+						</div>
 					</div>
 				</section>
 
@@ -686,7 +719,7 @@
 						<div>
 							<h4>chapter 1</h4>
 							<p>
-								Far out inthe uncharted
+								Far out in the uncharted
 								backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
 							</p>
 							<figure>
@@ -898,9 +931,14 @@
 
 				<section class="with-heading">
 						<h3>Block elements</h3>
-						<ul>
+						<ul style="justify-self: start">
 							<li>Sized absolutely, or relative to viewport, container, or content</li>
 							<li>Positioned using margin</li>
+						</ul>
+						<ul style="justify-self: start; list-style-type: ' \274C'">
+							<li>Can't size relative to siblings</li>
+							<li>Can't position relative to end</li>
+							<li>Can't position relative to siblings</li>
 						</ul>
 				</section>
 
@@ -914,7 +952,7 @@
 				<section>
 					<div style="height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 1em">
 					<code>
-						&lt;a&gt; &lt;abbr&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;time&gt; &lt;video&gt;					
+						&lt;abbr&gt; &lt;cite&gt; &lt;code&gt; &lt;em&gt; &lt;strong&gt; &lt;img&gt; &lt;label&gt; &lt;time&gt; &lt;video&gt;					
 					</code>
 					<code class="fragment fancy-text" style="font-size: 2em">
 						&lt;span&gt;
