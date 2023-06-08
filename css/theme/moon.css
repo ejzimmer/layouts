@@ -21,22 +21,14 @@ body {
   --background-gradient: linear-gradient(
     135deg,
     hsl(0, 70%, 85%),
-    hsl(39, 100%, 90%),
-    hsl(60, 100%, 90%),
-    hsl(120, 84%, 95%),
+    hsl(281, 80%, 95%),
     hsl(240, 100%, 95%),
-    hsl(281, 80%, 95%)
+    hsl(120, 84%, 95%),
+    hsl(60, 100%, 90%),
+    hsl(39, 100%, 90%)
   );
   color: var(--main-colour);
-  background: linear-gradient(
-    135deg,
-    hsl(0, 70%, 85%),
-    hsl(39, 100%, 90%),
-    hsl(60, 100%, 90%),
-    hsl(120, 84%, 95%),
-    hsl(240, 100%, 95%),
-    hsl(281, 80%, 95%)
-  );
+  background: var(--background-gradient);
   background-color: white;
 }
 
